@@ -103,10 +103,99 @@ testForm.addEventListener("submit", function(event) {
       "Do you have the ability to experience a sense of trust and dependability in your relationships with others?"
     ];
     
+    const totalQuestions = 41;
     let currentQuestion = 0;
     
-    testForm.addEventListener("submit", function(event) {
-      event.preventDefault();
-      currentQuestion++;
-      if (currentQuestion === questions.length) {
+    // Select the elements for the questions and answers
+    const questionContainer = document.getElementById("question-container");
+    const questionElement = document.getElementById("question");
+    const answerButtons = document.getElementById("answer-buttons");
+    const progressBar = document.getElementById("progress-bar");
+    
+    // Start the quiz
+    startQuiz();
+    
+    function startQuiz() {
+      // Reset the current question to 0
+      currentQuestion = 0;
+    
+      // Show the first question
+      showQuestion(questions[currentQuestion]);
+    }
+    
+    function showQuestion(question) {
+      // Update the question element with the new question
+      questionElement.innerText = question;
+    
+      // Clear the answer buttons
+      answerButtons.innerHTML = "";
+    
+      // Create buttons for each answer
+      const buttonTrue = createAnswerButton("True");
+      const buttonFalse = createAnswerButton("False");
+    
+      // Add the buttons to the answerButtons container
+      answerButtons.appendChild(buttonTrue);
+      answerButtons.appendChild(buttonFalse);
+    
+      // Handle clicks on the answer buttons
+      buttonTrue.addEventListener("click", handleAnswer);
+      buttonFalse.addEventListener("click", handleAnswer);
+    }
+    
+    function createAnswerButton(text) {
+      // Create a button element
+      const button = document.createElement("button");
+    
+      // Set the text and class for the button
+      button.innerText = text;
+      button.classList.add("btn");
+    
+      // Return the new button
+      return button;
+    }
+    
+    function handleAnswer(event) {
+      // Get the text of the button that was clicked
+      const answer = event.target.innerText;
+    
+      // Check if the answer is correct
+      const isCorrect = checkAnswer(answer);
+    
+      // Show the result of the answer
+      showResult(isCorrect);
+    
+      // Move on to the next question or show the results
+      if (currentQuestion + 1 < totalQuestions) {
+        currentQuestion++;
+        showQuestion(questions[currentQuestion]);
+      } else {
+        showResults();
+      }
+    }
+    
+    function checkAnswer(answer) {
+      // Check if the answer is "True"
+      return answer === "True";
+    }
+    
+    function showResult(isCorrect) {
+      // Show the result message
+      const result = isCorrect ? "Correct" : "Incorrect";
+      console.log(result);
+    }
+    
+    function showResults() {
+      // Show the final results message
+      console.log("Quiz Complete");
+    }
+    
+    // Update the progress bar
+    function updateProgress() {
+      // Calculate the percentage complete
+      const percentage = (currentQuestion + 1) / totalQuestions * 100;
+    
+      // Update the width of the progress bar
+      progressBar.style.width = `${percentage}%`;
+    }
     
