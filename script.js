@@ -1,4 +1,4 @@
-        const totalQuestions = 41;
+const totalQuestions = 41;
 let currentQuestion = 0;
 
 const questionContainer = document.getElementById("question-container");
@@ -9,60 +9,61 @@ const progressBar = document.getElementById("progress-bar");
 startQuiz();
 
 function startQuiz() {
-currentQuestion = 0;
-showQuestion(questions[currentQuestion]);
+  currentQuestion = 0;
+  showQuestion(questions[currentQuestion]);
 }
 
 function showQuestion(question) {
-questionElement.innerText = question;
-answerButtons.innerHTML = "";
+  questionElement.innerText = question;
+  answerButtons.innerHTML = "";
 
-const buttonTrue = createAnswerButton("True");
-const buttonFalse = createAnswerButton("False");
+  const buttonTrue = createAnswerButton("True");
+  const buttonFalse = createAnswerButton("False");
 
-answerButtons.appendChild(buttonTrue);
-answerButtons.appendChild(buttonFalse);
+  answerButtons.appendChild(buttonTrue);
+  answerButtons.appendChild(buttonFalse);
 
-buttonTrue.addEventListener("click", handleAnswer);
-buttonFalse.addEventListener("click", handleAnswer);
+  buttonTrue.addEventListener("click", handleAnswer);
+  buttonFalse.addEventListener("click", handleAnswer);
 }
 
 function createAnswerButton(text) {
-const button = document.createElement("button");
-button.innerText = text;
-button.classList.add("btn");
-return button;
+  const button = document.createElement("button");
+  button.innerText = text;
+  button.classList.add("btn");
+  return button;
 }
 
 function handleAnswer(event) {
-const answer = event.target.innerText;
-const isCorrect = checkAnswer(answer);
-showResult(isCorrect);
+  const answer = event.target.innerText;
+  const isCorrect = checkAnswer(answer);
+  showResult(isCorrect);
 
-if (currentQuestion + 1 < totalQuestions) {
-currentQuestion++;
-showQuestion(questions[currentQuestion]);
-} else {
-showResults();
-}
+  if (currentQuestion + 1 < totalQuestions) {
+    currentQuestion++;
+    showQuestion(questions[currentQuestion]);
+    updateProgress();
+  } else {
+    showResults();
+  }
 }
 
 function checkAnswer(answer) {
-return answer === "True";
+  return answer === "True";
 }
 
 function showResult(isCorrect) {
-const result = isCorrect ? "Correct" : "Incorrect";
-console.log(result);
+  const result = isCorrect ? "Correct" : "Incorrect";
+  console.log(result);
 }
 
 function showResults() {
-console.log("Quiz Complete");
+  console.log("Quiz Complete");
 }
 
 function updateProgress() {
-const percentage = (currentQuestion + 1) / totalQuestions * 100;
-progressBar.style.width = ${percentage}%;
+  const percentage = (currentQuestion + 1) / totalQuestions * 100;
+  progressBar.style.width = `${percentage}%`;
 }
 
 const questions = [

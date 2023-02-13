@@ -2,27 +2,17 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>NPC Test</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="container">
-      <h1>Are you an NPC?</h1>
-      <p>Take the test to find out!</p>
-      <div class="progress-bar">
-        <div class="progress-bar-fill"></div>
-      </div>
-      <form id="test-form">
-        <div class="question-container">
-          <p class="question"></p>
-          <label for="yes">Yes</label>
-          <input type="radio" id="yes" name="answer" value="yes">
-          <label for="no">No</label>
-          <input type="radio" id="no" name="answer" value="no">
-        </div>
-        <button type="submit">Next Question</button>
-      </form>
+    <div id="question-container">
+      <div id="question">What is your question?</div>
+      <div id="answer-buttons"></div>
     </div>
-    <script src="script.js"></script>
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
   </body>
+  <script src="app.js"></script>
 </html>
