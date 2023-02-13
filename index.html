@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>NPC Test</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-  <h1>NPC Test</h1>
-  <div id="test">
-    <p id="question">Do you have your own unique opinions on political and social issues?</p>
-    <div id="answers">
-      <button id="yes">Yes</button>
-      <button id="no">No</button>
+  <head>
+    <meta charset="utf-8" />
+    <title> NPC Test </title>
+  </head>
+  <body>
+    <div id="progress-container">
+      <p>Question <span id="current-question">1</span> of 41</p>
+      <progress id="progress" value="0" max="41"></progress>
     </div>
-  </div>
-  <script src="script.js"></script>
-</body>
+    <div id="question-container">
+      <p id="question">Do you have your own unique opinions on political and social issues?</p>
+      <div id="answer-buttons">
+        <button id="yes-button">Yes</button>
+        <button id="no-button">No</button>
+      </div>
+    </div>
+  </body>
 </html>
