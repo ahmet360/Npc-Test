@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title> NPC Test </title>
+    <meta charset="UTF-8">
+    <title>NPC Test</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <div id="progress-container">
-      <p>Question <span id="current-question">1</span> of 41</p>
-      <progress id="progress" value="0" max="41"></progress>
-    </div>
-    <div id="question-container">
-      <p id="question">Do you have your own unique opinions on political and social issues?</p>
-      <div id="answer-buttons">
-        <button id="yes-button">Yes</button>
-        <button id="no-button">No</button>
+    <div class="container">
+      <h1>Are you an NPC?</h1>
+      <p>Take the test to find out!</p>
+      <div class="progress-bar">
+        <div class="progress-bar-fill"></div>
       </div>
+      <form id="test-form">
+        <div class="question-container">
+          <p class="question"></p>
+          <label for="yes">Yes</label>
+          <input type="radio" id="yes" name="answer" value="yes">
+          <label for="no">No</label>
+          <input type="radio" id="no" name="answer" value="no">
+        </div>
+        <button type="submit">Next Question</button>
+      </form>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

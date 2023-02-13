@@ -1,44 +1,45 @@
 body {
   font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
-  padding: 30px;
 }
 
-#test {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#question {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-#answers {
-  display: flex;
-  justify-content: space-around;
-  width: 200px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 18px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-#progress-container {
-  width: 100%;
+.progress-bar {
   height: 20px;
+  width: 100%;
   background-color: lightgray;
   border-radius: 10px;
   overflow: hidden;
+  margin: 20px 0;
 }
 
-#progress {
+.progress-bar-fill {
   height: 100%;
   background-color: blue;
   width: 0;
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+label {
+  margin-right: 20px;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
